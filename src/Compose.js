@@ -37,7 +37,7 @@ class Compose extends Component {
     }
 
     loadZoneContent(zoneId) {
-        let url = COMPOSE + 'WidgetManager/Zone?location=data:' + zoneId;
+        let url = COMPOSE + 'WidgetManager/Zone?design=1&location=data:' + zoneId;
         let that = this;
 
         fetch(url)
