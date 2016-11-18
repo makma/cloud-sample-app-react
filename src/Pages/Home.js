@@ -4,11 +4,13 @@ import LatestArticles from '../Components/LatestArticles.js';
 import LinkButton from '../Components/LinkButton.js';
 import OurStory from '../Components/OurStory.js';
 import TasteOurCoffee from '../Components/TasteOurCoffee.js';
+import Compose from '../Compose.js';
 
 const Home = () => {
     return (
         <div className="container">
             <Banner />
+            <Compose zoneId="Test" />
             <LatestArticles />
             <LinkButton link="/articles" text="More articles" />
             <OurStory />
