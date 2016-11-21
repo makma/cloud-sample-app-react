@@ -1,16 +1,51 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import scriptLoader from 'react-async-script-loader';
+
+import CustomWidget from './Components/CustomWidget.js';
 
 const COMPOSE = 'http://localhost:59691/';
 
-window.FX = window.FX || {
-    appPath: COMPOSE
-};
+class WidgetZone extends Component {
 
-class Compose extends Component {
+    registerComponents(register) {
+        // Test of custom widget made in React
+        register(CustomWidget, "customwidget");
+    }
+
+    initComponents() {
+        let that = this;
+        cmsrequire(['jQuery', 'FX/Activator'], function($, activator) { // eslint-disable-line no-undef
+            that.registerComponents(function (component, name) { 
+                activator.registerActivation(
+                    'react-component-' + name.toLowerCase(),
+                    function (node) {
+                        var $component = $(node);
+
+                        try {
+                            ReactDOM.render(
+                                React.createElement(component, $.parseJSON($component.attr('data-props'))),
+                                $component[0]
+                            );
+                        }
+                        catch (e) {
+                            alert(e);
+                        }
+                    },
+                    true
+                );          
+            });
+        });
+    }
 
     initDesign() {
-        cmsrequire(['FX/WidgetManager']); // eslint-disable-line no-undef
+        if (!window.FX.loaded) {
+            window.FX.loaded = true;
+
+            cmsrequire(['FX/WidgetManager']); // eslint-disable-line no-undef
+            
+            this.initComponents();
+        }
     }
 
     componentWillReceiveProps ({ isScriptLoaded, isScriptLoadSucceed }) {
@@ -64,4 +99,8 @@ class Compose extends Component {
     }
 }
 
-export default scriptLoader(COMPOSE + 'js/FX/RequireJS/require.js', COMPOSE + 'js/FX/RequireJS/config.js')(Compose);
+window.FX = window.FX || {
+    appPath: COMPOSE
+};
+
+export default scriptLoader(COMPOSE + 'js/FX/RequireJS/require.js', COMPOSE + 'js/FX/RequireJS/config.js')(WidgetZone);
