@@ -10,7 +10,7 @@ class WidgetZone extends Component {
 
     registerComponents(register) {
         // Test of custom widget made in React
-        register(CustomWidget, "customwidget");
+        register(CustomWidget, "CustomWidget");
     }
 
     initComponents() {
@@ -20,11 +20,12 @@ class WidgetZone extends Component {
                 activator.registerActivation(
                     'react-component-' + name.toLowerCase(),
                     function (node) {
-                        var $component = $(node);
+                        var $component = $(node),
+                            props = $.parseJSON($component.attr('data-props'));
 
                         try {
                             ReactDOM.render(
-                                React.createElement(component, $.parseJSON($component.attr('data-props'))),
+                                React.createElement(component, props),
                                 $component[0]
                             );
                         }

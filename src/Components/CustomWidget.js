@@ -7,12 +7,17 @@ class CustomWidget extends Component {
         this.state = { now: new Date().toLocaleTimeString() };
         let that = this;
 
-        setInterval(function() { that.setState({ now: new Date().toLocaleTimeString() }) }, 1000);
+        setInterval(
+            function() { 
+                that.setState({ now: new Date().toLocaleTimeString() }) 
+            }, 
+            1000
+        );
     }
 
     render() {
         return (
-            <h2 className={this.props.cssClass}>Custom widget {this.state.now}</h2>
+            <h2 className={this.props.cssClass}>ReactJS widget {this.state.now}</h2>
         );
     }
 }
