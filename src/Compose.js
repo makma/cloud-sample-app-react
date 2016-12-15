@@ -104,4 +104,4 @@ window.FX = window.FX || {
     appPath: COMPOSE
 };
 
-export default scriptLoader(COMPOSE + 'js/FX/RequireJS/require.js', COMPOSE + 'js/FX/RequireJS/config.js')(WidgetZone);
+export default scriptLoader(COMPOSE + 'js/RequireJS/require.js', COMPOSE + 'js/RequireJS/config.js')(WidgetZone);
