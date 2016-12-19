@@ -5,8 +5,12 @@ import scriptLoader from 'react-async-script-loader';
 import CustomWidget from './Components/CustomWidget.js';
 
 const COMPOSE = 'http://localhost:59691/';
+const PROJECT_ID = '85e06f31-6a8f-405c-ba9c-dc7aed4ed373';
 
-class WidgetZone extends Component {
+class EditableArea extends Component {
+    static propTypes = {
+        areaId: React.PropTypes.string.required,
+    }
 
     registerComponents(register) {
         // Test of custom widget made in React
@@ -15,7 +19,7 @@ class WidgetZone extends Component {
 
     initComponents() {
         let that = this;
-        cmsrequire(['jQuery', 'FX/Activator'], function($, activator) { // eslint-disable-line no-undef
+        cmsrequire(['jQuery', 'Activator'], function($, activator) { // eslint-disable-line no-undef
             that.registerComponents(function (component, name) { 
                 activator.registerActivation(
                     'react-component-' + name.toLowerCase(),
@@ -43,7 +47,7 @@ class WidgetZone extends Component {
         if (!window.FX.loaded) {
             window.FX.loaded = true;
 
-            cmsrequire(['FX/WidgetManager']); // eslint-disable-line no-undef
+            cmsrequire(['WidgetManager']); // eslint-disable-line no-undef
             
             this.initComponents();
         }
@@ -72,8 +76,8 @@ class WidgetZone extends Component {
         throw error;
     }
 
-    loadZoneContent(zoneId) {
-        let url = COMPOSE + 'WidgetManager/Zone?design=1&location=data:' + zoneId;
+    loadEditableArea(areaId) {
+        let url = COMPOSE + 'widgets/editablearea?location=' + PROJECT_ID + ':' + areaId;
         let that = this;
 
         fetch(url)
@@ -81,7 +85,7 @@ class WidgetZone extends Component {
             .then((response) => response.text())
             .then(
                 function (html) { 
-                    that.setState({ zoneHtml: html })
+                    that.setState({ html: html })
                 }
             );
     }
@@ -89,13 +93,13 @@ class WidgetZone extends Component {
     constructor(props) {
         super(props);
 
-        this.state = { zoneHtml: 'Loading zone content ...' };
-        this.loadZoneContent(props.zoneId);
+        this.state = { html: 'Loading zone content ...' };
+        this.loadEditableArea(props.areaId);
     }
 
     render() {
         return (
-            <div className="compose" dangerouslySetInnerHTML={{ __html: this.state.zoneHtml }}></div>
+            <div className="compose" dangerouslySetInnerHTML={{ __html: this.state.html }}></div>
         );
     }
 }
@@ -104,4 +108,4 @@ window.FX = window.FX || {
     appPath: COMPOSE
 };
 
-export default scriptLoader(COMPOSE + 'js/RequireJS/require.js', COMPOSE + 'js/RequireJS/config.js')(WidgetZone);
+export default scriptLoader(COMPOSE + 'js/RequireJS/require.js', COMPOSE + 'js/RequireJS/config.js')(EditableArea);

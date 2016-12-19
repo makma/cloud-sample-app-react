@@ -4,7 +4,7 @@ import LatestArticles from '../Components/LatestArticles.js';
 import LinkButton from '../Components/LinkButton.js';
 import OurStory from '../Components/OurStory.js';
 import TasteOurCoffee from '../Components/TasteOurCoffee.js';
-import WidgetZone from '../Compose.js';
+import EditableArea from '../Compose.js';
 
 class Home extends Component {
 
@@ -22,7 +22,7 @@ class Home extends Component {
             <div className="container">
                 <h2>Home page {this.state.now}</h2>
                 <Banner />
-                <WidgetZone zoneId="Test" />
+                <EditableArea areaId="Test" />
                 <LatestArticles />
                 <LinkButton link="/articles" text="More articles" />
                 <OurStory />
