@@ -17,7 +17,10 @@ class CustomWidget extends Component {
 
     render() {
         return (
+        <div>
             <h2 className={this.props.cssClass}>ReactJS widget {this.state.now}</h2>
+            <div onClick={(ev) => { alert('Hello world'); ev.stopPropagation(); ev.preventDefault(); }}>click me</div>
+        </div>
         );
     }
 }
