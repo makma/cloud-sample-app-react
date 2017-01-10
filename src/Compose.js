@@ -19,6 +19,7 @@ window.addEventListener(
 
         if (data.source === 'Compose') {
             if (data.action === 'registerCustomWidgets') {
+                window.FX.R = React;
                 registerCustomWidgets(function(component, name) {
                     window.FX.Compose.registerCustomWidget(
                         'react-' + name.toLowerCase(), 
