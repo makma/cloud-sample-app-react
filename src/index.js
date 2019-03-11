@@ -10,7 +10,7 @@ import './index.css';
 
 const application = (
   <CookiesProvider>
-    <Router>
+    <Router basename="/cloud-sample-app-react">
       <Switch>
         <Route
           path={projectConfigurationPath}
