@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "1a84a9c1102aa390f7d788a9a4f4603c",
-    "url": "/cloud-sample-app-react/static/media/radio-button-checked.1a84a9c1.svg"
+    "revision": "8c6533e10367d0901e362f7d295e03b9",
+    "url": "/cloud-sample-app-react/static/media/radio-button.8c6533e1.svg"
   },
   {
     "revision": "a5b3588d8cdc35b48466",
@@ -28,16 +28,16 @@ self.__precacheManifest = [
     "url": "/cloud-sample-app-react/static/media/our-story.6b72dc24.jpg"
   },
   {
-    "revision": "abf2d2b04c7833a4fedc9c07bdb5a642",
-    "url": "/cloud-sample-app-react/static/media/checkbox-unchecked.abf2d2b0.svg"
-  },
-  {
     "revision": "392cb2e0295e00036c634860a8f0cbad",
     "url": "/cloud-sample-app-react/static/media/checkbox-checked.392cb2e0.svg"
   },
   {
-    "revision": "8c6533e10367d0901e362f7d295e03b9",
-    "url": "/cloud-sample-app-react/static/media/radio-button.8c6533e1.svg"
+    "revision": "abf2d2b04c7833a4fedc9c07bdb5a642",
+    "url": "/cloud-sample-app-react/static/media/checkbox-unchecked.abf2d2b0.svg"
+  },
+  {
+    "revision": "1a84a9c1102aa390f7d788a9a4f4603c",
+    "url": "/cloud-sample-app-react/static/media/radio-button-checked.1a84a9c1.svg"
   },
   {
     "revision": "a5b3588d8cdc35b48466",
@@ -64,12 +64,12 @@ self.__precacheManifest = [
     "url": "/cloud-sample-app-react/static/media/Core-icons.14fb01c4.woff"
   },
   {
-    "revision": "4611bc4557599035d912ff07366ad002",
-    "url": "/cloud-sample-app-react/static/media/Core-icons.4611bc45.eot"
-  },
-  {
     "revision": "1b9af651cbf6b3f133faf2bede0e5266",
     "url": "/cloud-sample-app-react/static/media/Core-icons.1b9af651.ttf"
+  },
+  {
+    "revision": "4611bc4557599035d912ff07366ad002",
+    "url": "/cloud-sample-app-react/static/media/Core-icons.4611bc45.eot"
   },
   {
     "revision": "6823218d348f1ba4e035908b672c745a",
